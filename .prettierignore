@@ -1,0 +1,6 @@
+.husky/_
+/coverage
+/lib
+/node_modules
+
+CHANGELOG.md
