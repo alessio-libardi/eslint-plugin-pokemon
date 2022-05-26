@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-pokemon",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "ESLint plugin for Pokemons.",
   "main": "lib/index.js",
   "files": [
