@@ -23,33 +23,33 @@ export const rule = createRule({
         if (!memberExpression) return
 
         context.report({
-          messageId: 'preferPokemonGetName',
+          messageId: 'preferGetId',
           node: memberExpression
         })
       }
     }
   },
-  name,
+  defaultOptions: [],
   meta: {
     docs: {
-      description: 'Prefer pokemon.getName',
-      recommended: 'warn',
+      description: "Enforce 'pokemon.getId' usage",
+      recommended: 'error',
       suggestion: true
     },
     hasSuggestions: true,
     messages: {
-      preferPokemonGetName: 'Prefer using pokemon.getName.'
+      preferGetId: "Use 'pokemon.getId' instead."
     },
     schema: [],
     type: 'suggestion'
   },
-  defaultOptions: []
+  name
 })
 
-function getCallExpressionByCallee(
+const getCallExpressionByCallee = (
   ancestors: TSESTree.Node[],
   callee: TSESTree.Node | undefined
-) {
+) => {
   return ancestors.find(
     (ancestor) =>
       ancestor.type === AST_NODE_TYPES.CallExpression &&
@@ -60,16 +60,15 @@ function getCallExpressionByCallee(
   ) as TSESTree.CallExpression | undefined
 }
 
-function getMemberExpressionByObject(
+const getMemberExpressionByObject = (
   ancestors: TSESTree.Node[],
   object: TSESTree.Node | undefined
-) {
+) => {
   return ancestors.find(
     (ancestor) =>
       ancestor.type === AST_NODE_TYPES.MemberExpression &&
       ancestor.object === object &&
-      ((ancestor.property.type === AST_NODE_TYPES.Identifier &&
-        ancestor.property.name === 'at') ||
-        ancestor.property.type === AST_NODE_TYPES.Literal)
+      ancestor.property.type === AST_NODE_TYPES.Identifier &&
+      ancestor.property.name === 'indexOf'
   ) as TSESTree.MemberExpression | undefined
 }

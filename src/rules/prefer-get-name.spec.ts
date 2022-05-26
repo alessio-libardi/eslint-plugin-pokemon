@@ -1,6 +1,6 @@
 import { AST_NODE_TYPES } from '@typescript-eslint/utils'
 
-import { name, rule } from './prefer-pokemon-get-name'
+import { name, rule } from './prefer-get-name'
 import { ruleTester } from '../utils/rule-tester'
 
 ruleTester.run(name, rule, {
@@ -17,7 +17,7 @@ ruleTester.run(name, rule, {
       code: 'pokemon.all().at(0)',
       errors: [
         {
-          messageId: 'preferPokemonGetName',
+          messageId: 'preferGetName',
           type: AST_NODE_TYPES.MemberExpression
         }
       ]
@@ -26,7 +26,7 @@ ruleTester.run(name, rule, {
       code: 'pokemon.all()[0]',
       errors: [
         {
-          messageId: 'preferPokemonGetName',
+          messageId: 'preferGetName',
           type: AST_NODE_TYPES.MemberExpression
         }
       ]
