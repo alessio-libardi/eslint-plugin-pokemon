@@ -1,3 +1,3 @@
-import { basename } from 'path'
+import { parse } from 'path'
 
-export const getRuleName = (filename: string) => basename(filename, '.ts')
+export const getRuleName = (filename: string) => parse(filename).name
