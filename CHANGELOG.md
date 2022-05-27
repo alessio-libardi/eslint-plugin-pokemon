@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/alessio-libardi/eslint-plugin-pokemon/compare/v1.0.0...v1.0.1) (2022-05-27)
+
+
+### Bug Fixes
+
+* **utils:** extract file name without extension ([957badc](https://github.com/alessio-libardi/eslint-plugin-pokemon/commit/957badc08715cdf8b6798099a75c9b168a23a8b7))
+
 # 1.0.0 (2022-05-26)
 
 
